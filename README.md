@@ -25,7 +25,7 @@
 
 1. Clone the repository:
    ```bash
-   git clone <URL of your forked repository>
+   git clone https://github.com/faridhmad/malaysian-ic-ocr-enhanced.git
    ```
 
 2. Create a Conda environment:
