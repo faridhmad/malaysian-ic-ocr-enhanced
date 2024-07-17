@@ -1,35 +1,59 @@
 <!DOCTYPE html>
-<html>
- <head>
-   <title>Upload Image</title>
- </head>
- <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>OCR-IC-Reader</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li> 
+            </ul>
+        </nav>
+    </header>
 
-   {% if msg %}
-   <h1>{{ msg }}</h1>
-   {% endif %}
-  
-   <h1>Upload new File</h1>
-  
-   <form method=post enctype=multipart/form-data>
-     <p><input type=file name=file>
-        <input type=submit value=Upload>
-   </form>
+    <main>
+        <section class="upload-section">
+            <h2>Upload Your IC Image</h2>
 
-   
-   {% if img_src %}
+            {% if msg %}
+            <p class="message">{{ msg }}</p>
+            {% endif %}
 
-<h1>Original IC Image:</h1>
-   <img src="{{ url_for('static', filename = 'file_ic_ORI.png') }}"  alt="previous" title="Previous" border="0">
-   <h1>Result:</h1>
-   <img src="{{ url_for('static', filename = 'file_ic_BOX.png') }}"  alt="previous" title="Previous" border="0">
-     <!-- <img src="{{ img_src }}"> -->
-   {% endif %}
-  
-   {% if extracted_text %}
-     <p> The extracted text from the image above is: </p>
-     <p><b> {{ extracted_text }} </b> </p>
-   {% else %}
-     The extracted text will be displayed here
-   {% endif %}
- </body>
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*" required>
+                <button type="submit">Upload</button>
+            </form>
+        </section>
+
+        {% if img_src %}
+        <section class="results-section">
+            <h3>Original IC Image:</h3>
+            <img src="{{ original_filename }}" alt="Original IC">
+            
+            <h3>Result:</h3>
+            <img src="{{ img_src }}" alt="Processed IC">
+
+            <h3>Extracted Text:</h3>
+            <div class="extracted-text">
+                {% if extracted_text %}
+                <p><b>{{ extracted_text }}</b></p>
+                {% else %}
+                <p>The extracted text will be displayed here.</p>
+                {% endif %}
+            </div>
+
+            <p>OCR Engine Used: <b>{{ ocr_engine }}</b></p>
+        </section>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>&copy; 2023 OCR-IC-Reader. All rights reserved.</p>
+    </footer>
+</body>
+</html>

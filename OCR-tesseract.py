@@ -1,7 +1,7 @@
 # import the necessary packages
 from PIL import Image
 import pytesseract
-pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'  
+pytesseract.pytesseract.tesseract_cmd = '/opt/homebrew/bin/tesseract'  
 import argparse
 import cv2
 import os

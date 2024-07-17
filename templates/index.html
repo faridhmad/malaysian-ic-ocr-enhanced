@@ -1,9 +1,31 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Index</title>
-  </head>
-  <body>
-    Hello World.
-  </body>
+<html lang="en"> <head>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>OCR-IC-Reader</title> <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> </head>
+
+<body>
+    <header>
+        <h1>OCR-IC-Reader</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('upload_page') }}">Upload IC Image</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Extract Text from Your ID Cards Easily</h2>
+            <p>
+                This tool utilizes state-of-the-art OCR technology to quickly and accurately extract 
+                information from your identification documents. Try it out now!
+            </p>
+            <a href="{{ url_for('upload_page') }}" class="btn">Get Started</a>
+        </section>
+
+        </main>
+
+    <footer>
+        <p>&copy; 2023 OCR-IC-Reader. All rights reserved.</p>
+    </footer>
+</body>
 </html>
