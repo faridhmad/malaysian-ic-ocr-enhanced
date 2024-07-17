@@ -28,6 +28,10 @@
    git clone https://github.com/faridhmad/malaysian-ic-ocr-enhanced.git
    ```
 
+      ```bash
+   cd malaysian-ic-ocr-enhanced
+   ```
+
 2. Create a Conda environment:
    ```bash
    conda create -n my_ocr_env python=3.8
